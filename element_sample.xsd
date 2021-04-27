@@ -2,12 +2,33 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <xs:element name="doc">
 <xs:complexType>
-<xs:sequence minOccurs="1" maxOccurs="9999">
+<xs:sequence minOccurs="1" maxOccurs="1">
 <xs:element name="element">
   <xs:complexType>
     <xs:simpleContent>
       <xs:extension base="xs:string">
-        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="name">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="Partnernummer"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:element>
+<xs:element name="element">
+  <xs:complexType>
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="name">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="Kontonummer"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -16,3 +37,4 @@
 </xs:complexType>
 </xs:element>
 </xs:schema>
+
