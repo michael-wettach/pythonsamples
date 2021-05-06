@@ -6,7 +6,7 @@
 <xs:element name="element">
   <xs:complexType>
     <xs:simpleContent>
-      <xs:extension base="Partnernummer_Type">
+      <xs:extension base="Number_8">
         <xs:attribute name="name">
           <xs:simpleType>
             <xs:restriction base="xs:string">
@@ -21,7 +21,7 @@
 <xs:element name="element">
   <xs:complexType>
     <xs:simpleContent>
-      <xs:extension base="xs:string">
+      <xs:extension base="Number_8">
         <xs:attribute name="name">
           <xs:simpleType>
             <xs:restriction base="xs:string">
@@ -33,13 +33,55 @@
     </xs:simpleContent>
   </xs:complexType>
 </xs:element>
+<xs:element name="element">
+  <xs:complexType>
+    <xs:simpleContent>
+      <xs:extension base="Generic_Date">
+        <xs:attribute name="name">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="Buchungstag"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:element>
+<xs:element name="element">
+  <xs:complexType>
+    <xs:simpleContent>
+      <xs:extension base="Generic_Float">
+        <xs:attribute name="name">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:pattern value="Saldo"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:element>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
 
-<xs:simpleType name="Partnernummer_Type">
+<xs:simpleType name="Number_8">
   <xs:restriction base="xs:string">
-    <xs:maxLength value="3" />
+    <xs:pattern value="\d{8}" />
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="Generic_Date">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="(19|20)\d\d-(0[1-9]|1[0-2])-(0[1-9]|[1-2]\d|3[01])" />
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="Generic_Float">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="(0|[1-9]\d*)\.\d\d" />
   </xs:restriction>
 </xs:simpleType>
 
