@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <doc>
   <element name="Partnernummer">12345678</element>
-  <element name="Kontonummer">1234567890</element>
-  <element name="not_valid">12345678</element>
+  <element name="Kontonummer">234567890</element>
+  <element name="Buchungstag">2020-05-04</element>
+  <element name="Saldo">12345.67</element>
 </doc>
+
