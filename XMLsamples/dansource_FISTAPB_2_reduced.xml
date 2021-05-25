@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<docs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="FinS_XSD_Light_reduced.xsd">
+<doc>
+  <header>
+    <version>1.0</version>
+  </header>
+  <payload>
+    <elements name="KAZInfo">
+      <element name="Kontoauszugsnr_Fins">1</element>
+    </elements>
+    <elements name="GiroRecord">
+      <element name="IBAN_Fins">DE89370400440532013000</element>
+    </elements>
+    <elements name="GiroRecord">
+      <element name="IBAN_Fins">DE89370400440532013001</element>
+    </elements>
+  </payload>
+</doc>
+</docs>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified">
+	<xs:element name="docs">
+		<xs:annotation>
+			<xs:documentation>dummy-text</xs:documentation>
+		</xs:annotation>
+		<!-- main tag identifying the beginning of a series of documents  -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="doc" minOccurs="1" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="doc">
+		<xs:annotation>
+			<xs:documentation>dummy-text</xs:documentation>
+		</xs:annotation>
+		<!-- the single document  -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="header" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="payload" minOccurs="1" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="header">
+		<xs:annotation>
+			<xs:documentation>dummy-text</xs:documentation>
+		</xs:annotation>
+		<!-- the header contains required meta data for the document as well as data that is commonly needed   -->
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>dummy-text</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="version" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>dummy-text</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="payload">
+		<xs:annotation>
+			<xs:documentation>dummy-text</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="elements" minOccurs="1" maxOccurs="1"><!-- KAZInfo -->
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="element">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="Fins_Nr">
+											<xs:attribute name="name">
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:pattern value="Kontoauszugnr_Fins"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:attribute>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name"><!-- KAZInfo -->
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="KAZInfo"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>	
+				<xs:element name="elements" minOccurs="1" maxOccurs="unbounded"><!-- GiroRecord -->
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="element">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="mandant">
+											<xs:attribute name="name">
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:pattern value="Mandant"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:attribute>
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name"><!-- GiroRecord -->
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:pattern value="GiroRecord"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>	
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="version">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="10" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+	<xs:simpleType name="Fins_Nr">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d|\d\d|\d\d\d"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="mandant">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+</xs:schema>
