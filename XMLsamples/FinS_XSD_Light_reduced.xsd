@@ -81,11 +81,11 @@
 							<xs:element name="element">
 								<xs:complexType>
 									<xs:simpleContent>
-										<xs:extension base="mandant">
+										<xs:extension base="iban_fins">
 											<xs:attribute name="name">
 												<xs:simpleType>
 													<xs:restriction base="xs:string">
-														<xs:pattern value="Mandant"/>
+														<xs:pattern value="IBAN_Fins"/>
 													</xs:restriction>
 												</xs:simpleType>
 											</xs:attribute>
@@ -121,10 +121,10 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="mandant">
+	<xs:simpleType name="iban_fins">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="\d{3}"/>
+			<xs:pattern value="DE\d{20}"/>
 		</xs:restriction>
-	</xs:simpleType>
-	
+	</xs:simpleType>	
+
 </xs:schema>
