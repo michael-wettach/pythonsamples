@@ -47,63 +47,49 @@
 		</xs:annotation>
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="elements" minOccurs="1" maxOccurs="1"><!-- KAZInfo -->
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="element">
-								<xs:complexType>
-									<xs:simpleContent>
-										<xs:extension base="Fins_Nr">
-											<xs:attribute name="name">
-												<xs:simpleType>
-													<xs:restriction base="xs:string">
-														<xs:pattern value="Kontoauszugnr_Fins"/>
-													</xs:restriction>
-												</xs:simpleType>
-											</xs:attribute>
-										</xs:extension>
-									</xs:simpleContent>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-						<xs:attribute name="name"><!-- KAZInfo -->
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:pattern value="KAZInfo"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-					</xs:complexType>
-				</xs:element>	
-				<xs:element name="elements" minOccurs="1" maxOccurs="unbounded"><!-- GiroRecord -->
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="element">
-								<xs:complexType>
-									<xs:simpleContent>
-										<xs:extension base="iban_fins">
-											<xs:attribute name="name">
-												<xs:simpleType>
-													<xs:restriction base="xs:string">
-														<xs:pattern value="IBAN_Fins"/>
-													</xs:restriction>
-												</xs:simpleType>
-											</xs:attribute>
-										</xs:extension>
-									</xs:simpleContent>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-						<xs:attribute name="name"><!-- GiroRecord -->
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:pattern value="GiroRecord"/>
-								</xs:restriction>
-							</xs:simpleType>
-						</xs:attribute>
-					</xs:complexType>
-				</xs:element>	
-			</xs:sequence>
+				<xs:element name="elements_KAZInfo" minOccurs="1" maxOccurs="1"><!-- KAZInfo -->
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="element_Fins_Nr">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="Fins_Nr">
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>	
+			<xs:element name="elements_GiroRecord" minOccurs="1" maxOccurs="unbounded"><!-- GiroRecord -->
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="element_IBAN_Fins">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="iban_fins">
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="elements_TagesgeldRecord" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="element_IBAN_Fins">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="iban_fins">
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>				
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		  </xs:sequence>
 		</xs:complexType>
 	</xs:element>
 

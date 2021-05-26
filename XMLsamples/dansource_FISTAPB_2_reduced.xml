@@ -15,6 +15,9 @@
     <elements name="GiroRecord">
       <element name="IBAN_Fins">DE89370400440532013001</element>
     </elements>
+    <elements name="TagesgeldRecord">
+      <element name="IBAN_Fins_TG">DE89370400440532013001</element>
+    </elements>
   </payload>
 </doc>
 </docs>
