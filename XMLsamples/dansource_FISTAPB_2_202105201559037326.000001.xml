@@ -17,7 +17,7 @@
       <clientId>111</clientId>
       <branchNo>412</branchNo>
       <accountNo>1234567</accountNo>
-      <subAccountNo>1</subAccountNo>
+      <subAccountNo>01</subAccountNo>
       <currency>EUR</currency>
       <bankProductType>45</bankProductType>
     </partner>
@@ -264,7 +264,7 @@
       <clientId>222</clientId>
       <branchNo>417</branchNo>
       <accountNo>7777777</accountNo>
-      <subAccountNo>1</subAccountNo>
+      <subAccountNo>01</subAccountNo>
       <currency>EUR</currency>
       <bankProductType>54</bankProductType>
     </partner>
