@@ -14,7 +14,7 @@
     <inputChannelName>FISTAPB</inputChannelName>
     <deliveryOn>2021-05-20</deliveryOn>
     <partner>
-      <clientId>11111</clientId>
+      <clientId>111</clientId>
       <branchNo>412</branchNo>
       <accountNo>1234567</accountNo>
       <subAccountNo>1</subAccountNo>
@@ -261,7 +261,7 @@
     <inputChannelName>FISTAPB</inputChannelName>
     <deliveryOn>2021-05-20</deliveryOn>
     <partner>
-      <clientId>22222</clientId>
+      <clientId>222</clientId>
       <branchNo>417</branchNo>
       <accountNo>7777777</accountNo>
       <subAccountNo>1</subAccountNo>
