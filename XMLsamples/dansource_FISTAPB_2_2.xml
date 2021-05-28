@@ -226,8 +226,8 @@
           <element name="Vorgang_TG">Verwendungszweck</element>
         </elements>
       </elements>
-      <element name="condType">T2</element>
       <elements name="TagesgeldKonditionen">
+        <element name="condType">T2</element>
         <element name="Zins_1">0.00001</element>
         <element name="Grenze_1">0.01</element>
         <element name="Zins_2">0.00002</element>
@@ -429,8 +429,8 @@
           <element name="Vorgang_TG">Verwendungszweck</element>
         </elements>
       </elements>
-      <element name="condType">T1</element>
       <elements name="TagesgeldKonditionen">
+        <element name="condType">T1</element>
         <element name="Zins_1">0.00001</element>
         <element name="Grenze_1">0.01</element>
         <element name="Zins_2">0.00001</element>
