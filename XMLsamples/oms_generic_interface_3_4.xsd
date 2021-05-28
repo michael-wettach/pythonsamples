@@ -1,0 +1,1402 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?> 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" /> 
+	<xs:element name="docs">
+		<xs:annotation>
+			<xs:documentation>main tag identifying the beginning of a series of documents</xs:documentation> 
+		</xs:annotation>
+		<!-- main tag identifying the beginning of a series of documents  --> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="doc" minOccurs="0" maxOccurs="unbounded" /> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="doc">
+		<xs:annotation>
+			<xs:documentation>the single document</xs:documentation> 
+		</xs:annotation>
+		<!-- the single document  --> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="header" minOccurs="1" maxOccurs="1" /> 
+				<xs:element ref="payload" minOccurs="0" maxOccurs="1" /> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="header">
+		<xs:annotation>
+			<xs:documentation>the header contains required meta data for the document as well as data that is commonly needed</xs:documentation> 
+		</xs:annotation>
+		<!-- 
+the header contains required meta data for the document as well as 	data that is commonly needed   --> 
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation>if the owner is a partner, for more detailed information this element should be added</xs:documentation> 
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element ref="version" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>version of the header.</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="documentInformation" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>generic but necessary and required information about this document</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="inputChannelName" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the input channel this document originally comes from</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="deliveryOn" type="xs:date" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>delivery date and will be used as correspondence print date</xs:documentation> 
+					</xs:annotation>
+					<!--  date this document was provided to the output engine (Format: YYYY-MM-DD)  --> 
+				</xs:element>
+				<xs:element ref="nachrichtenbox"  minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Tag used to deliver information relevant for Nachrichtenbox like subject line
+						</xs:documentation>
+					</xs:annotation>					
+				</xs:element>
+				<xs:element ref="partner" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the information about partner</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="letterSalutations" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>a list of max 2 letter salutation(Briefanrede)</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="receiverAddress" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>address lines(they are printed in the order they arrive) and flags</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="accountConsultant" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the information about account consultant</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="printerData" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Information about the printer if the document will be printed directly to a printer</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="emailData" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Information about the Email if the document will be sent to an email address</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="attachments" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>main tag identifying the beginning of a series of attachments</xs:documentation> 
+					</xs:annotation>
+					<!-- main tag identifying the beginning of a series of attachments  --> 
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element ref="attachment" minOccurs="0" maxOccurs="unbounded" /> 
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="qrCode" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Data to generate QR Code to be printed in document</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="dataMatrix" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Data to generate a data matrix Code to be printed in document</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="audit" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>information about audit</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="encryption" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>information about encryption</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="posyKeys" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>posy distribution keys for dbPrint</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="accountInfo" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>account info</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="digitalDeliveryOnly" type="xs:boolean" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>flag to control document processing for POSTBOX only</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="partnerDataExclusion" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>flags for excluding specific parts of partner data replica</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="subjectPostbox" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Postbox subject line</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="customParameters" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>header custom parameter. collection of data needed for archiving, printing and else in a generic manner</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="payload">
+		<xs:annotation>
+			<xs:documentation>this section contains the actual document raw data value that needs to be formatted</xs:documentation> 
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="elements" minOccurs="0" maxOccurs="unbounded" /> 
+				<xs:element ref="encryptedData" minOccurs="0" maxOccurs="1" /> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="documentInformation">
+		<xs:annotation>
+			<xs:documentation>generic but necessary and required information about this document</xs:documentation> 
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="trackingId" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>identifies the actual doc via a unique id to be stored in document metadata for tracking</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="60" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="docTypeId" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>identifies the actual doc type via a unique id</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="10" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="version" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>identifies the working version of the document's template to use</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="docTypeDescription">
+					<xs:annotation>
+						<xs:documentation>describe the document</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="200" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="documentType" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>describe the document type, business template</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1" /> 
+							<xs:maxLength value="4" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="languageReceiver" default="de" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the language the receiver want to have this document in ( ISO 639-1:2002)</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[a-z,A-Z]{2}" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="countryReceiver" default="DE" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>country the document receiver lives in (ISO 3166 ALPHA-2)</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[A-Z]{2}" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="documentCharacteristic" default="O" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>identifies if this document is an original,a duplicate or else</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="O" /> 
+							<xs:enumeration value="D" /> 
+							<xs:enumeration value="Z" /> 
+                            <xs:enumeration value="V" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="copyCounter" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>identifies how many copies should be created, specially for documentCharacteristic "D"</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="0" /> 
+							<xs:maxInclusive value="99" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="envelopeId" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>identifies whether this document may be bundled with another one; if two due documents have the same id they will be bundled</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="64" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="customParameters" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>document custom parameter. collection of data in a generic manner</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="productId" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>product identifier</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="prodDesc" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>product description</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="productHandlingId" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>product handling identifier</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="productMarketingId" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>product marketing identifier</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="inputChannelName">
+		<xs:annotation>
+			<xs:documentation>the name of data provider</xs:documentation> 
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="10" /> 
+			</xs:restriction>
+		</xs:simpleType>
+		<!-- the input channel this document originally comes from  --> 
+	</xs:element>
+	<xs:element name="nachrichtenbox">
+		<xs:annotation>
+			<xs:documentation> Tag used to deliver information relevant for Nachrichtenbox like subject line</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="subject" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Betreff zeile für Nachrichtenbox</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="255" /> 
+						</xs:restriction>
+					</xs:simpleType>					
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="partner">
+		<xs:annotation>
+			<xs:documentation>partnter information block</xs:documentation> 
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="clientId" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>identifies the legal entity of the client, i. e. 002 (PGK), 003 (DBAG), 014 (norisbank), 500 (SOP) or else</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{3}" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="brandId" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Brandingmerkmal</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="partnerId" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the id of the partner(in PD)</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="receiverPartnerId" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the id of the partner(in Business Partner)</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="businessArea" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the business area of partner account</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{3}" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="division" type="xs:string" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>division</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="subDivision" type="xs:string" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>sub division</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="corrDivision" type="xs:string" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>corr division</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="firstCustContract" type="xs:string" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>first customer contract</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="contractNo" type="xs:string" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>contract number</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="branchNo" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the branch number of partner account</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{3}" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="accountNo" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the account number of partner account</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="20" /> 
+							<xs:minLength value="7" /> 
+							<xs:pattern value="[0-9]*" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="subAccountNo" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the subaccount number of partner account</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[0-9]{2}" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<!--  changed from mandatory V2.4 to optional V2.5  --> 
+				<xs:element name="currency" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the currency of partner account</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:pattern value="[A-Z]{3}" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="bankCode" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the national (German) bank code (Bankleitzahl)</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="bankCountry" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>country of bank</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="iban" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the international bank account number (IBAN)</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="bic" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>the international bank code (BIC)</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="accountOwner" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>titel, first and lastname of account owner</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="accountOwnerLastName" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>lastname and title of account owner</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="accountOwnerLastNameOnly" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>lastname of account owner</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="accountOwnerFirstName" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>firstname and title of account owner</xs:documentation> 
+					</xs:annotation>
+                </xs:element>
+				<xs:element name="accountOwnerFirstNameOnly" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>firstname of account owner</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="employeeFlag" default="0" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>0:false and 1:true</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="0" /> 
+							<xs:enumeration value="1" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="internalFlag" default="0" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>0:false for external address and 1:true for internal address</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="0" /> 
+							<xs:enumeration value="1" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="streetAndNumber" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>street and number</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="zipCodeAndTown" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>zip code and town</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="country" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>country</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="bankProductType" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>PD_CONTRACT.bank_product_id</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="2" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="partnerType" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>PD_PARTNER.partner_type</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="3" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="gender" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>PD_PARTNER.sex</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="1" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="birthName" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>PD_PARTNER.BirthName</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="dateOfBirth" type="xs:date" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>date of birth</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+                <xs:element name="street" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>street</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+                <xs:element name="houseNumber" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>house number</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="10" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+                <xs:element name="zipcode" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>zip code</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="10" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="advertisementFlag" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>PD_PARTNER.advertisementFlag</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="1" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="preferredEmailAddress" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>PD_PARTNER.preferredEmailAddress</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="105" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="customParameters" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>partner custom parameters. collection of data in a generic manner</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="letterSalutations">
+		<xs:annotation>
+			<xs:documentation>a list of max 2 letter salutation(Briefanrede)</xs:documentation> 
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="letterSalutation" minOccurs="0" maxOccurs="2">
+					<xs:annotation>
+						<xs:documentation>a list of max 2 letter salutation(Briefanrede)</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="70" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="audit">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="department" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>department</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="location" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>location</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="accountConsultant">
+		<!-- account manager of the document receiver  --> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="consulterUserId" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>account consultant user id</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="consulterId" type="xs:string" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>account consultant consulter id</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="branchName1" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>branch name part1</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="branchName2" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>branch name part2</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="salutation" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>salutation</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="firstName" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>first name</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="lastName" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>last name</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="streetAndNumber" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>street and number</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="zipCodeAndTown" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>zip code and town</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="phoneCountryCode" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>phone country code</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+                <xs:element name="phoneAreaCode" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>phone area code</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="phoneNumber" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>phone number</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="faxCountryCode" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>fax country code</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="faxAreaCode" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>fax area code</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="faxNumber" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>fax number</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>              
+				<xs:element name="email" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>email</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="105" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="operationalArea" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>operational area</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="2" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="advisoryFunction1" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>advisory function 1</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="advisoryFunction2" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>advisory function 2</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="customParameters" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>account consultant custom parameters. collection of data in a generic manner</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="accountInfo">
+		<!-- account info  --> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="rubrum1" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>rubrum line 1</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="28" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="rubrum2" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>rubrum line 1</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="28" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="partnerDataExclusion">
+		<!-- exclusion flags for pd replica enrichment  --> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="excludeGeneralPartnerData" default="false" type="xs:boolean" minOccurs="0"  maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>exclude general partner data</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="excludeReceiverAddress" default="false" type="xs:boolean" minOccurs="0"  maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>exclude receiver address</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="excludeAccountConsultant" default="false" type="xs:boolean" minOccurs="0"  maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>exclude account consultant</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="excludeAccountInfo" default="false" type="xs:boolean" minOccurs="0"  maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>exclude account information (rubrum)</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="subjectPostbox">
+		<!-- subject value for postbox  -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="de" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>value for postbox subject (language: german)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="en" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>value for postbox subject (language: english)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="es" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>subject for postbox (language: spanish)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="it" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>subject for postbox (language: italian)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="fr" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>subject for postbox (language: french)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="nl" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>subject for postbox (language: dutch)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="255"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="printerData">
+		<!-- Direct printer information for the document  --> 
+
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="printerName" type="xs:string" minOccurs="1" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>printer name</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="printerIP" type="xs:string" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>printer IP address</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="printServer" type="xs:string" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>print server</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="emailData">
+		<!-- Information about the email address(es) where the document is to be sent  --> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="receiverEmail" minOccurs="1" maxOccurs="1">
+                    <xs:complexType>
+						<xs:annotation>
+							<xs:documentation>list of receiver email addresses</xs:documentation> 
+						</xs:annotation>
+                        <xs:sequence>
+                            <xs:element ref="mailAccount" minOccurs="1" maxOccurs="unbounded" /> 
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>    
+				<xs:element name="sendEmail" type="xs:boolean" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>flag if the document should be sent via email</xs:documentation> 
+					</xs:annotation>
+                </xs:element>    
+				<xs:element name="subjectEmail" type="xs:string" minOccurs="1" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>email subject</xs:documentation> 
+					</xs:annotation>
+                </xs:element>    
+				<xs:element name="replyToEmail" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>list of reply to email addresses</xs:documentation> 
+					</xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="mailAccount" minOccurs="1" maxOccurs="1" /> 
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element> 
+				<xs:element name="ccEmail" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>list of cc email addresses</xs:documentation> 
+					</xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="mailAccount" minOccurs="1" maxOccurs="unbounded" /> 
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+				<xs:element name="bccEmail" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>list of bcc email addresses</xs:documentation> 
+					</xs:annotation>
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="mailAccount" minOccurs="1" maxOccurs="unbounded" /> 
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+				<xs:element name="readNotification" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>read notification flag (0:false and 1:true)</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="0" /> 
+							<xs:enumeration value="1" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+                <xs:element name="senderDisplayName" type="xs:string" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>sender display name</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+                <xs:element name="filename" type="xs:string" minOccurs="1" maxOccurs="1">      
+					<xs:annotation>
+						<xs:documentation>filename prefix for attached files</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+                <xs:element name="bounceToEmail" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="mailAccount" minOccurs="1" maxOccurs="1" /> 
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>                
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <xs:element name="mailAccount">
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element name="displayName" type="xs:string" minOccurs="0" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>display name</xs:documentation> 
+					</xs:annotation>
+                </xs:element>                
+				<xs:element name="address" type="xs:string" minOccurs="1" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>email address</xs:documentation> 
+					</xs:annotation>
+                </xs:element>                
+			</xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="attachment">
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element name="data" minOccurs="1" maxOccurs="1"> 
+					<xs:annotation>
+						<xs:documentation>data base64</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:base64Binary" /> 
+					</xs:simpleType>
+                </xs:element>                
+				<xs:element name="trackingId" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>trackingId of the attachment</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="60" /> 
+						</xs:restriction>
+					</xs:simpleType>
+                </xs:element>
+				<xs:element name="emailFilename" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="postbox" minOccurs="0" maxOccurs="1" />
+				<xs:element name="extension" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="postbox">
+		<xs:annotation>
+			<xs:documentation>Postbox Data</xs:documentation> 
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="subject" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="prefix" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>prefix for the postbox filename</xs:documentation> 
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="42" /> 
+						</xs:restriction>
+					</xs:simpleType>
+                </xs:element>                
+				<xs:element name="category" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="mandatory" type="xs:string" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>MANDATORY or STANDARD</xs:documentation> 
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="read_status" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="sourceDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="qrCode">
+		<xs:annotation>
+			<xs:documentation>QR-Code Data, Length limited to 108 after PoC</xs:documentation> 
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="data" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="108" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dataMatrix">
+		<!-- Datamatrix 
+ --> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="data" type="xs:string" minOccurs="1" maxOccurs="1" /> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="encryption">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="encryptionType" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="30" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="decryptionKey" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:base64Binary" /> 
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="initializationVector" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:base64Binary" /> 
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="decryptionKeyVersion" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="30" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="customParameters">
+		<xs:annotation>
+			<xs:documentation>a section of key elements that contains a name value pair collection of data needed for archiving, printing and else (basically meta information about the header element) in a generic manner</xs:documentation> 
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="key" maxOccurs="unbounded" /> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="version">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="10" /> 
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="receiverAddress">
+		<xs:annotation>
+			<xs:documentation>address lines(they are printed in the order they arrive) and flags</xs:documentation> 
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="addressLine" minOccurs="3" maxOccurs="7">
+					<!--  printed in the order they arrive  --> 
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="50" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="mailingAllowed" minOccurs="0" maxOccurs="1">
+					<!--  printed in the order they arrive  --> 
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="1" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="key">
+		<xs:annotation>
+			<xs:documentation>a generic key value combination used for document meta data like archive index information and such</xs:documentation> 
+		</xs:annotation>
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="name" type="xs:string" use="required" /> 
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="elements">
+		<xs:annotation>
+			<xs:documentation>a generic structural element used for payload structuring</xs:documentation> 
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="element" minOccurs="0" maxOccurs="unbounded" /> 
+				<xs:element ref="elements" minOccurs="0" maxOccurs="unbounded" /> 
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required" /> 
+			<xs:attribute name="attribute" type="xs:string" use="optional" /> 
+			<!-- 
+in case of searching or sorting the name of the elements in a section should be unique   --> 
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="element">
+		<!-- a generic structural element used for payload structuring  --> 
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="name" type="xs:string" use="required" /> 
+					<xs:attribute name="attribute" type="xs:string" use="optional" /> 
+				</xs:extension>
+				<!-- 
+in case of searching or sorting the name of the element in a section should be unique   --> 
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="encryptedData">
+		<xs:simpleType>
+			<xs:restriction base="xs:base64Binary" /> 
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="nameLines">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="nameLine" minOccurs="0" maxOccurs="3">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="35" /> 
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="streetAndNumber">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35" /> 
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="zipCodeAndTown">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35" /> 
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="country">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35" /> 
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="posyKeys">
+		<xs:annotation>
+			<xs:documentation>posy distribution keys</xs:documentation> 
+		</xs:annotation>
+		<!-- posy distribution keys  --> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="posyDistributionKey1" minOccurs="0" maxOccurs="1" /> 
+				<xs:element ref="posyDistributionKey2" minOccurs="0" maxOccurs="1" /> 
+				<xs:element ref="posyDistributionKey3" minOccurs="0" maxOccurs="1" /> 
+				<xs:element ref="posyDistributionKey4" minOccurs="0" maxOccurs="1" /> 
+				<xs:element ref="posyDistributionKey5" minOccurs="0" maxOccurs="1" /> 
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="posyDistributionKey1">
+		<xs:annotation>
+			<xs:documentation>Verteilkennzeichen Post; V = versandfertig, I = interne Anschrift (z.B. AKP), B = VersandBesonderheiten (z.B. Konten mit Postversandschlüssel), A = auszusteuernde Post; X = Xchanging; Y bei PVS=AKP</xs:documentation> 
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="V" /> 
+				<xs:enumeration value="I" /> 
+				<xs:enumeration value="B" /> 
+				<xs:enumeration value="A" /> 
+				<xs:enumeration value="Y" /> 
+				<xs:enumeration value="X" /> 
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="posyDistributionKey2">
+		<xs:annotation>
+			<xs:documentation>POSY: Postversandschlüssel; Hier können Ergänzungen zu DISTRIB_KEY1 festgehalten werden, die POSY eine weitere Differenzierung in der Stapelaufteilung ermöglicht – bis hin zum Stapelnamen selbst (z.B.: AUS6B1)</xs:documentation> 
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="6" /> 
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="posyDistributionKey3">
+		<xs:annotation>
+			<xs:documentation>POSY: weiteres Verteil-Kennzeichen.Filialnummer und die ersten 3 Stellen der Kontonummer</xs:documentation> 
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="6" /> 
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="posyDistributionKey4">
+		<xs:annotation>
+			<xs:documentation>POSY: Zusätzlicher Controlling-Begriff für weitere Abrechnungen</xs:documentation> 
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="12" /> 
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="posyDistributionKey5">
+		<xs:annotation>
+			<xs:documentation>POSY: Zusätzlicher Sortierbegriff z.B. in welcher Reihenfolge gedruckt werden soll, erst PLZ Frankfurt, dann Bayern etc.</xs:documentation> 
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="12" /> 
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

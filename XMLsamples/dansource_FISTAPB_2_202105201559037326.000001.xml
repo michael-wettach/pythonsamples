@@ -1,0 +1,448 @@
+<?xml version="1.0"?>
+<docs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="FinS_XSD_Light_extended_19052021.xsd">
+<doc>
+  <header>
+    <version>1.0</version>
+    <documentInformation>
+      <trackingId>FISTAPB_44072797-7540-4aae-8af1-489a393b151c</trackingId>
+      <docTypeId>FISTAPB001</docTypeId>
+      <docTypeDescription/>
+      <documentType>LITE</documentType>
+      <documentCharacteristic>O</documentCharacteristic>
+    </documentInformation>
+    <inputChannelName>FISTAPB</inputChannelName>
+    <deliveryOn>2021-05-20</deliveryOn>
+    <partner>
+      <clientId>11111</clientId>
+      <branchNo>412</branchNo>
+      <accountNo>1234567</accountNo>
+      <subAccountNo>1</subAccountNo>
+      <currency>EUR</currency>
+      <bankProductType>45</bankProductType>
+    </partner>
+    <customParameters>
+      <key name="senderReferenceID">FS Nr 12/2021</key>
+    </customParameters>
+  </header>
+  <payload>
+    <elements name="KAZInfo">
+      <element name="Kontoauszugsnr_Fins">1</element>
+      <element name="Kontoauszugsnr_Fins_vorherige"></element>
+      <element name="Fins_Datum_aktuell">2021-05-01</element>
+      <element name="Fins_Datum_Vorgaenger">2021-04-01</element>
+      <element name="Zeitraum_Start">2021-04-01</element>
+      <element name="Zeitraum_Ende">2021-04-30</element>
+    </elements>
+    <elements name="GiroRecord">
+      <element name="IBAN_Fins">DE89370400440532013000</element>
+      <element name="IBAN_weitere">DE99370400440532013000</element>
+      <element name="AbschlDatum">2021-04-15</element>
+      <element name="Prodint">1</element>
+      <element name="BLZ">37040044</element>
+      <element name="Zeitraum_Start">2021-03-15</element>
+      <element name="Kontonummer">1234567</element>
+      <element name="Startsaldo">4152.25</element>
+      <element name="Abschlusssaldo">7896.25</element>
+      <element name="Soll_Haben_Abschlusssaldo">Soll</element>
+      <element name="Umsatz">234.00</element>
+      <element name="Soll_gesamt">2222.00</element>
+      <element name="Haben_gesamt">11.00</element>
+      <element name="Zwisaldo_Ende">23121.00</element>
+      <element name="Flg_Zinsaend">true</element>
+      <element name="Datum_Dispozinsaenderung">2021-01-01</element>
+      <element name="DispoRahmen">10000.0</element>
+      <element name="Dispozins">0.0003</element>
+      <element name="Zins_geduldet_Ueberzeihung">0.13</element>
+      <element name="Max_Verfuegung">10000.00</element>
+      <elements name="GiroRecordBuchung">
+        <element name="Buchungsbetrag_Soll"></element>
+        <element name="Buchungsbetrag_Haben">857.92</element>
+        <element name="Buchungsdatum">2021-04-12</element>
+        <element name="Buchungstext">Spenden</element>
+        <element name="Zusatzinfo">Zusatzinfo</element>
+        <element name="ForeignPaymentFlag">false</element>
+        <element name="FLG_BetrLang">true</element>
+        <element name="Valuta_WT">2222.00</element>
+        <element name="Empf_Aauftr">Erika Mustermann</element>
+        <element name="Ref_Empf_Auftr">Erik Mustermann</element>
+        <element name="Zwischensaldo">1111.00</element>
+        <elements name="Buchungsvorgaenge">
+          <element name="Vorgang">Verwendungszweck Zeile1</element>
+          <element name="Vorgang">Zeile2</element>
+          <element name="Vorgang">Zeile3</element>
+        </elements>
+      </elements>
+      <elements name="GiroRecordBuchung">
+        <element name="Buchungsbetrag_Soll">87857.90</element>
+        <element name="Buchungsbetrag_Haben"></element>
+        <element name="Buchungsdatum">2021-04-15</element>
+        <element name="Buchungstext">Einkauf Rewe</element>
+        <element name="Zusatzinfo">Zusatzinfo</element>
+        <element name="ForeignPaymentFlag">true</element>
+        <element name="FLG_BetrLang">false</element>
+        <element name="Valuta_WT">1111.00</element>
+        <element name="Empf_Aauftr">Erika Mustermann</element>
+        <element name="Ref_Empf_Auftr">Erik Mustermann</element>
+        <element name="Zwischensaldo">2323.20</element>
+        <elements name="Buchungsvorgaenge">
+          <element name="Vorgang">Verwendungszweck Zeile1</element>
+          <element name="Vorgang">Zeile2</element>
+          <element name="Vorgang">Zeile3</element>
+        </elements>
+      </elements>
+    </elements>
+    <elements name="GiroRecord">
+      <element name="IBAN_Fins">DE89370400440532013001</element>
+      <element name="IBAN_weitere">DE99370400440532013001</element>
+      <element name="AbschlDatum">2021-04-15</element>
+      <element name="Prodint">1</element>
+      <element name="BLZ">37040044</element>
+      <element name="Zeitraum_Start">2021-03-15</element>
+      <element name="Kontonummer">2234566</element>
+      <element name="Startsaldo">-152.25</element>
+      <element name="Abschlusssaldo">96.25</element>
+      <element name="Soll_Haben_Abschlusssaldo">Haben</element>
+      <element name="Umsatz">123.00</element>
+      <element name="Soll_gesamt">5222.00</element>
+      <element name="Haben_gesamt">11.00</element>
+      <element name="Zwisaldo_Ende">23121.00</element>
+      <element name="Flg_Zinsaend">false</element>
+      <element name="Datum_Dispozinsaenderung">2021-01-01</element>
+      <element name="DispoRahmen">10000.0</element>
+      <element name="Dispozins">0.0003</element>
+      <element name="Zins_geduldet_Ueberzeihung">0.13</element>
+      <element name="Max_Verfuegung">20000.00</element>
+      <elements name="GiroRecordBuchung">
+        <element name="Buchungsbetrag_Soll">14.41</element>
+        <element name="Buchungsbetrag_Haben"></element>
+        <element name="Buchungsdatum">2021-04-13</element>
+        <element name="Buchungstext">Fissure</element>
+        <element name="Zusatzinfo">Zusatzinfo</element>
+        <element name="ForeignPaymentFlag">false</element>
+        <element name="FLG_BetrLang">true</element>
+        <element name="Valuta_WT">11.12</element>
+        <element name="Empf_Aauftr">Erika Mustermann</element>
+        <element name="Ref_Empf_Auftr">Erik Mustermann</element>
+        <element name="Zwischensaldo">345.99</element>
+        <elements name="Buchungsvorgaenge">
+          <element name="Vorgang">Verwendungszweck Zeile1</element>
+          <element name="Vorgang">Zeile2</element>
+          <element name="Vorgang">Zeile3</element>
+        </elements>
+      </elements>
+      <elements name="GiroRecordBuchung">
+        <element name="Buchungsbetrag_Soll"></element>
+        <element name="Buchungsbetrag_Haben">6145.87</element>
+        <element name="Buchungsdatum">2021-04-15</element>
+        <element name="Buchungstext">Einkauf Mediamarkt</element>
+        <element name="Zusatzinfo">Zusatzinfo</element>
+        <element name="ForeignPaymentFlag">true</element>
+        <element name="FLG_BetrLang">false</element>
+        <element name="Valuta_WT">12.23</element>
+        <element name="Empf_Aauftr">Erika Mustermann</element>
+        <element name="Ref_Empf_Auftr">Erik Mustermann</element>
+        <element name="Zwischensaldo">30000.00</element>
+        <elements name="Buchungsvorgaenge">
+          <element name="Vorgang">Verwendungszweck Zeile1</element>
+          <element name="Vorgang">Zeile2</element>
+          <element name="Vorgang">Zeile3</element>
+        </elements>
+      </elements>
+      <elements name="GiroRecordBuchung">
+        <element name="Buchungsbetrag_Soll">145.87</element>
+        <element name="Buchungsbetrag_Haben"></element>
+        <element name="Buchungsdatum">2021-04-14</element>
+        <element name="Buchungstext">Restaurant</element>
+        <element name="Zusatzinfo">Zusatzinfo</element>
+        <element name="ForeignPaymentFlag">true</element>
+        <element name="FLG_BetrLang">false</element>
+        <element name="Valuta_WT">21.23</element>
+        <element name="Empf_Aauftr">Erik Mustermann</element>
+        <element name="Ref_Empf_Auftr">Erik Mustermann</element>
+        <element name="Zwischensaldo">4000.00</element>
+        <elements name="Buchungsvorgaenge">
+          <element name="Vorgang">Verwendungszweck Zeile1</element>
+          <element name="Vorgang">Zeile2</element>
+          <element name="Vorgang">Zeile3</element>
+        </elements>
+      </elements>
+    </elements>
+    <elements name="TagesgeldRecord">
+      <element name="IBAN_Fins_TG">DE89370400440532013001</element>
+      <element name="IBAN_weitere_TG">DE99370400440532013001</element>
+      <element name="Saldo_Datum_TG">2021-04-15</element>
+      <element name="Prodint_TG">TAGESGELD</element>
+      <element name="BLZ_TG">37040044</element>
+      <element name="Saldo_Datum_vorherige_TG">2021-03-15</element>
+      <element name="Kontonummer_TG">2234566</element>
+      <element name="Startsaldo_TG">-152.25</element>
+      <element name="Umsatz_TG">96.25</element>
+      <element name="Soll_gesamt_TG">123.00</element>
+      <element name="Haben_gesamt_TG">5222.00</element>
+      <element name="Zwisaldo_TG">23121.00</element>
+      <elements name="TagesgeldRecordBuchung">
+        <element name="Buchungsbetrag_Soll_TG"></element>
+        <element name="Buchungsbetrag_Haben_TG">6145.87</element>
+        <element name="Buchungsdatum_TG">2021-04-15</element>
+        <element name="Buchungstext_TG">Einkauf Mediamarkt</element>
+        <element name="Zusatzinfo_TG">Zusatzinfo</element>
+        <element name="Empf_Aauftr_TG">Erika Mustermann</element>
+        <element name="Ref_Empf_Auftr_TG">Erik Mustermann</element>
+        <element name="FLG_BetrLang_TG">false</element>
+        <element name="Valuta_WT_TG">12.23</element>
+        <element name="Zwischensaldo_TG">30000.00</element>
+        <elements name="Buchungsvorgaenge_TG">
+          <element name="Vorgang_TG">Verwendungszweck</element>
+        </elements>
+      </elements>
+      <elements name="TagesgeldRecordBuchung">
+        <element name="Buchungsbetrag_Soll_TG">14.41</element>
+        <element name="Buchungsbetrag_Haben_TG"></element>
+        <element name="Buchungsdatum_TG">2021-04-13</element>
+        <element name="Buchungstext_TG">Fissure</element>
+        <element name="Zusatzinfo_TG">Zusatzinfo</element>
+        <element name="Empf_Aauftr_TG">Erika Mustermann</element>
+        <element name="Ref_Empf_Auftr_TG">Erik Mustermann</element>
+        <element name="FLG_BetrLang_TG">false</element>
+        <element name="Valuta_WT_TG">11.12</element>
+        <element name="Zwischensaldo_TG">345.99</element>
+        <elements name="Buchungsvorgaenge_TG">
+          <element name="Vorgang_TG">Verwendungszweck</element>
+        </elements>
+      </elements>
+      <elements name="TagesgeldRecordBuchung">
+        <element name="Buchungsbetrag_Soll_TG">145.87</element>
+        <element name="Buchungsbetrag_Haben_TG"></element>
+        <element name="Buchungsdatum_TG">2021-04-14</element>
+        <element name="Buchungstext_TG">Restaurant</element>
+        <element name="Zusatzinfo_TG">Zusatzinfo</element>
+        <element name="Empf_Aauftr_TG">Erik Mustermann</element>
+        <element name="Ref_Empf_Auftr_TG">Erik Mustermann</element>
+        <element name="FLG_BetrLang_TG">false</element>
+        <element name="Valuta_WT_TG">21.23</element>
+        <element name="Zwischensaldo_TG">4000.00</element>
+        <elements name="Buchungsvorgaenge_TG">
+          <element name="Vorgang_TG">Verwendungszweck</element>
+        </elements>
+      </elements>
+      <element name="condType">T2</element>
+      <elements name="TagesgeldKonditionen">
+        <element name="Zins_1">0.00001</element>
+        <element name="Grenze_1">0.01</element>
+        <element name="Zins_2">0.00002</element>
+        <element name="Grenze_2">10000</element>
+        <element name="Zins_3">0.00003</element>
+        <element name="Grenze_3">25000</element>
+        <element name="Zins_4">0.00004</element>
+        <element name="Grenze_4">250000</element>
+        <element name="Zins_5">0.00005</element>
+        <element name="Grenze_5">500000</element>
+        <element name="Zins_6">0.00006</element>
+        <element name="Grenze_6">1000000</element>
+        <element name="Zins_7">0.00007</element>
+        <element name="Grenze_7">1500000</element>
+        <element name="Zins_8">0.00008</element>
+        <element name="Grenze_8">5000000</element>
+      </elements>
+    </elements>
+  </payload>
+</doc>
+<doc>
+  <header>
+    <version>1.0</version>
+    <documentInformation>
+      <trackingId>FISTAPB_dbce4465-b2ca-4668-9052-d0e296c1d6dd</trackingId>
+      <docTypeId>FISTAPB001</docTypeId>
+      <docTypeDescription/>
+      <documentType>LITE</documentType>
+      <documentCharacteristic>O</documentCharacteristic>
+    </documentInformation>
+    <inputChannelName>FISTAPB</inputChannelName>
+    <deliveryOn>2021-05-20</deliveryOn>
+    <partner>
+      <clientId>22222</clientId>
+      <branchNo>417</branchNo>
+      <accountNo>7777777</accountNo>
+      <subAccountNo>1</subAccountNo>
+      <currency>EUR</currency>
+      <bankProductType>54</bankProductType>
+    </partner>
+    <customParameters>
+      <key name="senderReferenceID">FS Nr 12/2021</key>
+    </customParameters>
+  </header>
+  <payload>
+    <elements name="KAZInfo">
+      <element name="Kontoauszugsnr_Fins">2</element>
+      <element name="Kontoauszugsnr_Fins_vorherige">1</element>
+      <element name="Fins_Datum_aktuell">2021-04-01</element>
+      <element name="Fins_Datum_Vorgaenger">2021-03-01</element>
+      <element name="Zeitraum_Start">2021-03-01</element>
+      <element name="Zeitraum_Ende">2021-03-31</element>
+    </elements>
+    <elements name="GiroRecord">
+      <element name="IBAN_Fins">DE89370400440532013100</element>
+      <element name="IBAN_weitere">DE99370400440532013100</element>
+      <element name="AbschlDatum">2021-04-15</element>
+      <element name="Prodint">1</element>
+      <element name="BLZ">37040044</element>
+      <element name="Zeitraum_Start">2021-02-15</element>
+      <element name="Kontonummer">7777777</element>
+      <element name="Startsaldo">145.32</element>
+      <element name="Abschlusssaldo">4582.10</element>
+      <element name="Soll_Haben_Abschlusssaldo">Soll</element>
+      <element name="Umsatz">45.20</element>
+      <element name="Soll_gesamt">3222.00</element>
+      <element name="Haben_gesamt">11.00</element>
+      <element name="Zwisaldo_Ende">23121.00</element>
+      <element name="Flg_Zinsaend">true</element>
+      <element name="Datum_Dispozinsaenderung">2021-01-01</element>
+      <element name="DispoRahmen">10000.0</element>
+      <element name="Dispozins">0.0003</element>
+      <element name="Zins_geduldet_Ueberzeihung">0.13</element>
+      <element name="Max_Verfuegung">100000.00</element>
+      <elements name="GiroRecordBuchung">
+        <element name="Buchungsbetrag_Soll">28.59</element>
+        <element name="Buchungsbetrag_Haben"></element>
+        <element name="Buchungsdatum">2021-04-15</element>
+        <element name="Buchungstext">Parken</element>
+        <element name="Zusatzinfo">Zusatzinfo</element>
+        <element name="ForeignPaymentFlag">false</element>
+        <element name="FLG_BetrLang">true</element>
+        <element name="Valuta_WT">56.43</element>
+        <element name="Empf_Aauftr">Erik Mustermann</element>
+        <element name="Ref_Empf_Auftr">Erik Mustermann</element>
+        <element name="Zwischensaldo">34.99</element>
+        <elements name="Buchungsvorgaenge">
+          <element name="Vorgang">Verwendungszweck Zeile1</element>
+          <element name="Vorgang">Zeile2</element>
+          <element name="Vorgang">Zeile3</element>
+        </elements>
+      </elements>
+    </elements>
+    <elements name="GiroRecord">
+      <element name="IBAN_Fins">DE89370400440532013106</element>
+      <element name="IBAN_weitere">DE99370400440532013106</element>
+      <element name="AbschlDatum">2021-04-15</element>
+      <element name="Prodint">1</element>
+      <element name="BLZ">37040044</element>
+      <element name="Zeitraum_Start">2021-02-14</element>
+      <element name="Kontonummer">6777776</element>
+      <element name="Startsaldo">1145.32</element>
+      <element name="Abschlusssaldo">4582.30</element>
+      <element name="Soll_Haben_Abschlusssaldo">Soll</element>
+      <element name="Umsatz">232.09</element>
+      <element name="Soll_gesamt">8222.00</element>
+      <element name="Haben_gesamt">11.00</element>
+      <element name="Zwisaldo_Ende">23121.00</element>
+      <element name="Flg_Zinsaend">true</element>
+      <element name="Datum_Dispozinsaenderung">2021-01-01</element>
+      <element name="DispoRahmen">10000.0</element>
+      <element name="Dispozins">0.0003</element>
+      <element name="Zins_geduldet_Ueberzeihung">0.13</element>
+      <element name="Max_Verfuegung">10000.00</element>
+      <elements name="GiroRecordBuchung">
+        <element name="Buchungsbetrag_Soll"></element>
+        <element name="Buchungsbetrag_Haben">48556.40</element>
+        <element name="Buchungsdatum">2021-04-15</element>
+        <element name="Buchungstext">Miete</element>
+        <element name="Zusatzinfo">Zusatzinfo</element>
+        <element name="ForeignPaymentFlag">false</element>
+        <element name="FLG_BetrLang">true</element>
+        <element name="Valuta_WT">65.66</element>
+        <element name="Empf_Aauftr">Erika Mustermann</element>
+        <element name="Ref_Empf_Auftr">Erik Mustermann</element>
+        <element name="Zwischensaldo">19.99</element>
+        <elements name="Buchungsvorgaenge">
+          <element name="Vorgang">Verwendungszweck Zeile1</element>
+          <element name="Vorgang">Zeile2</element>
+          <element name="Vorgang">Zeile3</element>
+        </elements>
+      </elements>
+    </elements>
+    <elements name="GiroRecord">
+      <element name="IBAN_Fins">DE89370400440532013105</element>
+      <element name="IBAN_weitere">DE99370400440532013105</element>
+      <element name="AbschlDatum">2021-04-15</element>
+      <element name="Prodint">1</element>
+      <element name="BLZ">37040044</element>
+      <element name="Zeitraum_Start">2021-02-13</element>
+      <element name="Kontonummer">5777775</element>
+      <element name="Startsaldo">-145.32</element>
+      <element name="Abschlusssaldo">-4582.00</element>
+      <element name="Soll_Haben_Abschlusssaldo">Soll</element>
+      <element name="Umsatz">121.00</element>
+      <element name="Soll_gesamt">2222.00</element>
+      <element name="Haben_gesamt">11.00</element>
+      <element name="Zwisaldo_Ende">23121.00</element>
+      <element name="Flg_Zinsaend">true</element>
+      <element name="Datum_Dispozinsaenderung">2021-01-01</element>
+      <element name="DispoRahmen">10000.0</element>
+      <element name="Dispozins">0.0003</element>
+      <element name="Zins_geduldet_Ueberzeihung">0.13</element>
+      <element name="Max_Verfuegung">10000.00</element>
+      <elements name="GiroRecordBuchung">
+        <element name="Buchungsbetrag_Soll"></element>
+        <element name="Buchungsbetrag_Haben">3388.79</element>
+        <element name="Buchungsdatum">2021-04-15</element>
+        <element name="Buchungstext">Gehalt</element>
+        <element name="Zusatzinfo">Zusatzinfo</element>
+        <element name="ForeignPaymentFlag">false</element>
+        <element name="FLG_BetrLang">true</element>
+        <element name="Valuta_WT">77.88</element>
+        <element name="Empf_Aauftr">Erika Mustermann</element>
+        <element name="Ref_Empf_Auftr">Erik Mustermann</element>
+        <element name="Zwischensaldo">333000.00</element>
+        <elements name="Buchungsvorgaenge">
+          <element name="Vorgang">Verwendungszweck Zeile1</element>
+          <element name="Vorgang">Zeile2</element>
+          <element name="Vorgang">Zeile3</element>
+        </elements>
+      </elements>
+    </elements>
+    <elements name="TagesgeldRecord">
+      <element name="IBAN_Fins_TG">DE89370400440532013106</element>
+      <element name="IBAN_weitere_TG">DE99370400440532013106</element>
+      <element name="Saldo_Datum_TG">2021-04-15</element>
+      <element name="Prodint_TG">TAGESGELD</element>
+      <element name="BLZ_TG">37040044</element>
+      <element name="Saldo_Datum_vorherige_TG">2021-02-14</element>
+      <element name="Kontonummer_TG">6777776</element>
+      <element name="Startsaldo_TG">1145.32</element>
+      <element name="Umsatz_TG">4582.30</element>
+      <element name="Soll_gesamt_TG">232.09</element>
+      <element name="Haben_gesamt_TG">8222.00</element>
+      <element name="Zwisaldo_TG">23121.00</element>
+      <elements name="TagesgeldRecordBuchung">
+        <element name="Buchungsbetrag_Soll_TG"></element>
+        <element name="Buchungsbetrag_Haben_TG">48556.40</element>
+        <element name="Buchungsdatum_TG">2021-04-15</element>
+        <element name="Buchungstext_TG">Miete</element>
+        <element name="Zusatzinfo_TG">Zusatzinfo</element>
+        <element name="Empf_Aauftr_TG">Erika Mustermann</element>
+        <element name="Ref_Empf_Auftr_TG">Erik Mustermann</element>
+        <element name="FLG_BetrLang_TG">false</element>
+        <element name="Valuta_WT_TG">65.66</element>
+        <element name="Zwischensaldo_TG">19.99</element>
+        <elements name="Buchungsvorgaenge_TG">
+          <element name="Vorgang_TG">Verwendungszweck</element>
+        </elements>
+      </elements>
+      <element name="condType">T1</element>
+      <elements name="TagesgeldKonditionen">
+        <element name="Zins_1">0.00001</element>
+        <element name="Grenze_1">0.01</element>
+        <element name="Zins_2">0.00001</element>
+        <element name="Grenze_2">10000</element>
+        <element name="Zins_3">0.00001</element>
+        <element name="Grenze_3">25000</element>
+        <element name="Zins_4">0.00001</element>
+        <element name="Grenze_4">250000</element>
+        <element name="Zins_5">0.00001</element>
+        <element name="Grenze_5">500000</element>
+      </elements>
+    </elements>
+  </payload>
+</doc>
+</docs>
